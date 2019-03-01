@@ -10,7 +10,7 @@ MainFolder = 'C:\Users\THIENC\Desktop\Task_Tiantan\DBS_FOG_IntraOP_Test1';
 RTBox('clear',0); 
 
 % Open RT box if hasn't   
-RTBox('TTLWidth', .02);
+RTBox('TTLWidth', 0.02);
 RTBox('enable','light');
 
 % For parameters Dialogue box
@@ -33,7 +33,7 @@ pause(2); % Pause 2 seconds after starting finger print
 Fs = 8192;                          % Default Sampling Frequency 8192 (Hz)
 Ts = 1/Fs;                          % Sampling Interval (s)
 T = 0:Ts:SoundDuration;             % 0.2 Second
-Frq = 438;                          % Tone Frequency; C tone = 438Hz
+Frq = 1046;                          % Tone Frequency; C tone = 438Hz
 Y = sin(2*pi*Frq*T);                % Sine wave tone
 
 % Randomized inter-trial interval
@@ -42,7 +42,7 @@ RandomITI = rand(nTrialsEachBlock,1)*RandITIScale;
 for i = 1:nTrialsEachBlock
     RTBox('clear');
     soundsc(Y,Fs);
-    RTBox('TTL', 128);
+    RTBox('TTL',128);
     pause(FixedITI + RandomITI(i))
 end
 
